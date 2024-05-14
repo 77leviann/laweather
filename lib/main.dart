@@ -14,9 +14,10 @@ import 'package:laweather/screens/home/home_screen.dart';
 import 'package:laweather/screens/on_boarding/bloc/on_boarding_bloc.dart';
 import 'package:laweather/screens/on_boarding/on_boarding_screen.dart';
 import 'package:laweather/widgets/current_weather/bloc/current_weather_bloc.dart';
-import 'package:laweather/widgets/forecast/bloc/forecast_widget_event.dart';
 import 'package:laweather/widgets/forecast/forecast_by_days/bloc/forecast_by_days_bloc.dart';
 import 'package:laweather/widgets/forecast/forecast_hourly/bloc/forecast_hourly_bloc.dart';
+import 'package:laweather/widgets/global/bloc/custom_bottom_navigation_bloc.dart';
+import 'package:laweather/widgets/global/custom_bottom_navigation_widget.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -58,6 +59,9 @@ class MainApp extends StatelessWidget {
             create: (_) => ForecastByDaysBloc(
               ForecastByDaysService(),
             ),
+          ),
+          BlocProvider(
+            create: (_) => CustomBottomNavigationBloc(),
           ),
           BlocProvider(
             create: (_) => HomeBloc(),
@@ -108,7 +112,7 @@ class MainApp extends StatelessWidget {
                   if (snapshot.data == true) {
                     return const OnBoardingScreen();
                   } else {
-                    return const HomeScreen();
+                    return const CustomBottomNavigationWidget();
                   }
                 },
               );
