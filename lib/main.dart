@@ -1,16 +1,20 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:laweather/constants/name_routes_constant.dart';
+import 'package:laweather/env/env.dart';
 import 'package:laweather/helpers/shared_pref_helper.dart';
 import 'package:laweather/models/services/air_pollution_service.dart';
 import 'package:laweather/models/services/current_weather_service.dart';
 import 'package:laweather/models/services/forecast_by_days_service.dart';
 import 'package:laweather/models/services/forecast_hourly_service.dart';
 import 'package:laweather/models/services/history_weather_service.dart';
+import 'package:laweather/screens/chatbot/chatbot_screen.dart';
+import 'package:laweather/screens/chatbot/provider/chatbot_provider.dart';
 import 'package:laweather/screens/current_weather_detail/bloc/current_weather_detail_bloc.dart';
 import 'package:laweather/screens/current_weather_detail/current_weather_detail_screen.dart';
 import 'package:laweather/screens/home/bloc/home_bloc.dart';
@@ -26,8 +30,10 @@ import 'package:laweather/widgets/forecast/forecast_hourly/bloc/forecast_hourly_
 import 'package:laweather/widgets/global/bloc/custom_bottom_navigation_bloc.dart';
 import 'package:laweather/widgets/global/custom_bottom_navigation_widget.dart';
 import 'package:laweather/widgets/history_weather/bloc/history_weather_bloc.dart';
+import 'package:provider/provider.dart';
 
 void main() {
+  Gemini.init(apiKey: Env.geminiApipKey);
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(
     widgetsBinding: widgetsBinding,
@@ -48,7 +54,11 @@ class MainApp extends StatelessWidget {
       ),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, child) => MultiBlocProvider(
+      builder: (_, child) => Provider(
+        create: (_) => ChatbotProvider(),
+        child: child,
+      ),
+      child: MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (_) => OnBoardingBloc(),
@@ -148,6 +158,7 @@ class MainApp extends StatelessWidget {
             NameRoutes.searchScreen: (context) => const SearchScreen(),
             NameRoutes.detailScreen: (context) =>
                 const CurrentWeatherDetailScreen(),
+            NameRoutes.chatbotScreen: (context) => const ChatbotScreen(),
           },
         ),
       ),

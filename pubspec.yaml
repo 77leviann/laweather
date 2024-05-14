@@ -27,6 +27,9 @@ dependencies:
   intl: ^0.18.0
   toggle_switch: ^2.3.0
   curved_navigation_bar: ^1.0.3
+  provider: ^6.1.2
+  flutter_gemini: ^2.0.3
+  dash_chat_2: ^0.0.20
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:laweather/screens/chatbot/chatbot_screen.dart';
 import 'package:laweather/screens/home/home_screen.dart';
 import 'package:laweather/screens/search/search_screen.dart';
 import 'package:laweather/widgets/global/bloc/custom_bottom_navigation_bloc.dart';
@@ -24,7 +25,7 @@ class _CustomBottomNavigationWidgetState
       case 1:
         return const HomeScreen();
       case 2:
-        return const SizedBox.shrink();
+        return const ChatbotScreen();
       default:
         return const SizedBox.shrink();
     }
