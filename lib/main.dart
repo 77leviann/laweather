@@ -13,6 +13,8 @@ import 'package:laweather/screens/home/bloc/home_bloc.dart';
 import 'package:laweather/screens/home/home_screen.dart';
 import 'package:laweather/screens/on_boarding/bloc/on_boarding_bloc.dart';
 import 'package:laweather/screens/on_boarding/on_boarding_screen.dart';
+import 'package:laweather/screens/search/bloc/search_bloc.dart';
+import 'package:laweather/screens/search/search_screen.dart';
 import 'package:laweather/widgets/current_weather/bloc/current_weather_bloc.dart';
 import 'package:laweather/widgets/forecast/forecast_by_days/bloc/forecast_by_days_bloc.dart';
 import 'package:laweather/widgets/forecast/forecast_hourly/bloc/forecast_hourly_bloc.dart';
@@ -65,6 +67,11 @@ class MainApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (_) => HomeBloc(),
+          ),
+          BlocProvider(
+            create: (_) => SearchBloc(
+              WeatherService(),
+            ),
           ),
         ],
         child: MaterialApp(
@@ -119,6 +126,7 @@ class MainApp extends StatelessWidget {
             },
             NameRoutes.onBoardingScreen: (context) => const OnBoardingScreen(),
             NameRoutes.homeScreen: (context) => const HomeScreen(),
+            NameRoutes.searchScreen: (context) => const SearchScreen(),
           },
         ),
       ),

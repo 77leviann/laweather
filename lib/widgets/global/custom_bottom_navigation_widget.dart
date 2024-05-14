@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:laweather/screens/home/home_screen.dart';
+import 'package:laweather/screens/search/search_screen.dart';
 import 'package:laweather/widgets/global/bloc/custom_bottom_navigation_bloc.dart';
-
-
 class CustomBottomNavigationWidget extends StatefulWidget {
   const CustomBottomNavigationWidget({super.key});
 
@@ -21,7 +20,7 @@ class _CustomBottomNavigationWidgetState
   Widget _getPage(int page) {
     switch (page) {
       case 0:
-        return const SizedBox.shrink();
+        return const SearchScreen();
       case 1:
         return const HomeScreen();
       case 2:
