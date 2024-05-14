@@ -10,10 +10,13 @@ class CurrentWeatherHomeImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WeatherImageWidget(
-      description: currentWeatherData.weather?.first.description ?? '',
-      height: 200.h,
-      width: 200.w,
+    return GestureDetector(
+       onTap: () => Navigator.pushNamed(context, NameRoutes.detailScreen),
+      child: WeatherImageWidget(
+        description: currentWeatherData.weather?.first.description ?? '',
+        height: 200.h,
+        width: 200.w,
+      ),
     );
   }
 }

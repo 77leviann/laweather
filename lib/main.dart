@@ -6,18 +6,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:laweather/constants/name_routes_constant.dart';
 import 'package:laweather/helpers/shared_pref_helper.dart';
+import 'package:laweather/models/services/air_pollution_service.dart';
 import 'package:laweather/models/services/current_weather_service.dart';
 import 'package:laweather/models/services/forecast_by_days_service.dart';
 import 'package:laweather/models/services/forecast_hourly_service.dart';
+import 'package:laweather/models/services/history_weather_service.dart';
+import 'package:laweather/screens/current_weather_detail/bloc/current_weather_detail_bloc.dart';
+import 'package:laweather/screens/current_weather_detail/current_weather_detail_screen.dart';
 import 'package:laweather/screens/home/bloc/home_bloc.dart';
 import 'package:laweather/screens/home/home_screen.dart';
 import 'package:laweather/screens/on_boarding/bloc/on_boarding_bloc.dart';
 import 'package:laweather/screens/on_boarding/on_boarding_screen.dart';
+import 'package:laweather/screens/search/bloc/search_bloc.dart';
+import 'package:laweather/screens/search/search_screen.dart';
+import 'package:laweather/widgets/air_pollution/bloc/air_pollution_bloc.dart';
 import 'package:laweather/widgets/current_weather/bloc/current_weather_bloc.dart';
 import 'package:laweather/widgets/forecast/forecast_by_days/bloc/forecast_by_days_bloc.dart';
 import 'package:laweather/widgets/forecast/forecast_hourly/bloc/forecast_hourly_bloc.dart';
 import 'package:laweather/widgets/global/bloc/custom_bottom_navigation_bloc.dart';
 import 'package:laweather/widgets/global/custom_bottom_navigation_widget.dart';
+import 'package:laweather/widgets/history_weather/bloc/history_weather_bloc.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -61,10 +69,28 @@ class MainApp extends StatelessWidget {
             ),
           ),
           BlocProvider(
+            create: (_) => AirPollutionBloc(
+              AirPollutionService(),
+            ),
+          ),
+          BlocProvider(
+            create: (_) => HistoryWeatherBloc(
+              HistoryWeatherService(),
+            ),
+          ),
+          BlocProvider(
             create: (_) => CustomBottomNavigationBloc(),
           ),
           BlocProvider(
             create: (_) => HomeBloc(),
+          ),
+          BlocProvider(
+            create: (_) => SearchBloc(
+              WeatherService(),
+            ),
+          ),
+          BlocProvider(
+            create: (_) => CurrentWeatherDetailBloc(),
           ),
         ],
         child: MaterialApp(
@@ -119,6 +145,9 @@ class MainApp extends StatelessWidget {
             },
             NameRoutes.onBoardingScreen: (context) => const OnBoardingScreen(),
             NameRoutes.homeScreen: (context) => const HomeScreen(),
+            NameRoutes.searchScreen: (context) => const SearchScreen(),
+            NameRoutes.detailScreen: (context) =>
+                const CurrentWeatherDetailScreen(),
           },
         ),
       ),
