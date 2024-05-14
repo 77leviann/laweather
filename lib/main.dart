@@ -4,8 +4,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:laweather/constants/name_routes_constant.dart';
+import 'package:laweather/helpers/shared_pref_helper.dart';
+import 'package:laweather/models/services/current_weather_service.dart';
+import 'package:laweather/models/services/forecast_by_days_service.dart';
+import 'package:laweather/models/services/forecast_hourly_service.dart';
+import 'package:laweather/screens/home/bloc/home_bloc.dart';
+import 'package:laweather/screens/home/home_screen.dart';
 import 'package:laweather/screens/on_boarding/bloc/on_boarding_bloc.dart';
 import 'package:laweather/screens/on_boarding/on_boarding_screen.dart';
+import 'package:laweather/widgets/current_weather/bloc/current_weather_bloc.dart';
+import 'package:laweather/widgets/forecast/bloc/forecast_widget_event.dart';
+import 'package:laweather/widgets/forecast/forecast_by_days/bloc/forecast_by_days_bloc.dart';
+import 'package:laweather/widgets/forecast/forecast_hourly/bloc/forecast_hourly_bloc.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +43,24 @@ class MainApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (_) => OnBoardingBloc(),
+          ),
+          BlocProvider(
+            create: (_) => CurrentWeatherBloc(
+              WeatherService(),
+            ),
+          ),
+          BlocProvider(
+            create: (_) => ForecastHourlyBloc(
+              ForecastHourlyService(),
+            ),
+          ),
+          BlocProvider(
+            create: (_) => ForecastByDaysBloc(
+              ForecastByDaysService(),
+            ),
+          ),
+          BlocProvider(
+            create: (_) => HomeBloc(),
           ),
         ],
         child: MaterialApp(
@@ -70,7 +99,23 @@ class MainApp extends StatelessWidget {
           ),
           themeMode: ThemeMode.system,
           debugShowCheckedModeBanner: false,
-          home: const OnBoardingScreen(),
+          initialRoute: NameRoutes.initRoute,
+          routes: <String, WidgetBuilder>{
+            NameRoutes.initRoute: (context) {
+              return FutureBuilder<bool>(
+                future: SharedPreferencesHelper.isFirstTime(),
+                builder: (context, snapshot) {
+                  if (snapshot.data == true) {
+                    return const OnBoardingScreen();
+                  } else {
+                    return const HomeScreen();
+                  }
+                },
+              );
+            },
+            NameRoutes.onBoardingScreen: (context) => const OnBoardingScreen(),
+            NameRoutes.homeScreen: (context) => const HomeScreen(),
+          },
         ),
       ),
     );
