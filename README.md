@@ -158,84 +158,19 @@ If you haven't installed Flutter yet, you can do so by following the instruction
 
 Below are some screenshots that demonstrate the usage of the project:
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+| | | |
+|:--:|:--:|:--:|
+| **Splash Light Mode** | **Splash Dark Mode** | **On Boarding Page 1** |
+| ![Splash Light Mode](images/feature/splash_light.png) | ![Splash Dark Mode](images/feature/splash_dark.png) | ![On Boarding Page 1](images/feature/on_boarding_page_1.png) |
+| **On Boarding Page 2** | **On Boarding Page 3** | **On Boarding Page 4** |
+| ![On Boarding Page 2](images/feature/on_boarding_page_2.png) | ![On Boarding Page 3](images/feature/on_boarding_page_3.png) | ![On Boarding Page 4](images/feature/on_boarding_page_4.png) |
+| **On Boarding Page 5** | **On Boarding Page 6** | **Home Screen** |
+| ![On Boarding Page 5](images/feature/on_boarding_page_5.png) | ![On Boarding Page 6](images/feature/on_boarding_page_6.png) | ![Home Screen](images/feature/home_screen.png) |
+| **Home Screen 2** | **Detail Screen** | **Search Screen** |
+| ![Home Screen 2](images/feature/home_screen_2.png) | ![Detail Screen](images/feature/detail_screen.png) | ![Search Screen](images/feature/search_screen.png) |
+| **Search Screen 2** | **Chatbot Screen** | **Chatbot Screen 2** |
+| ![Search Screen 2](images/feature/search_screen_2.png) | ![Chatbot Screen](images/feature/chatbot_screen.png) | ![Chatbot Screen 2](images/feature/chatbot_screen_2.png) |
 
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>Splash Light Mode</p>
-    <img src="images/feature/splash_light.png" alt="Splash Light Mode" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>Splash Dark Mode</p>
-    <img src="images/feature/splash_dark.png" alt="Splash Dark Mode" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>On Boarding Page 1</p>
-    <img src="images/feature/on_boarding_page_1.png" alt="On Boarding Page 1" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>On Boarding Page 2</p>
-    <img src="images/feature/on_boarding_page_2.png" alt="On Boarding Page 2" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>On Boarding Page 3</p>
-    <img src="images/feature/on_boarding_page_3.png" alt="On Boarding Page 3" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>On Boarding Page 4</p>
-    <img src="images/feature/on_boarding_page_4.png" alt="On Boarding Page 4" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>On Boarding Page 5</p>
-    <img src="images/feature/on_boarding_page_5.png" alt="On Boarding Page 5" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>On Boarding Page 6</p>
-    <img src="images/feature/on_boarding_page_6.png" alt="On Boarding Page 6" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>Home Screen</p>
-    <img src="images/feature/home_screen.png" alt="Home Screen" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>Home Screen 2</p>
-    <img src="images/feature/home_screen_2.png" alt="Home Screen 2" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>Detail Screen</p>
-    <img src="images/feature/detail_screen.png" alt="Detail Screen" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>Search Screen</p>
-    <img src="images/feature/search_screen.png" alt="Search Screen" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>Search Screen 2</p>
-    <img src="images/feature/search_screen_2.png" alt="Search Screen 2" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>Chatbot Screen</p>
-    <img src="images/feature/chatbot_screen.png" alt="Chatbot Screen" style="width: 100%; border-radius: 8px;">
-  </div>
-
-  <div style="width: 30%; text-align: center; border: 1px solid #ddd; padding: 10px; box-sizing: border-box;">
-    <p>Chatbot Screen 2</p>
-    <img src="images/feature/chatbot_screen_2.png" alt="Chatbot Screen 2" style="width: 100%; border-radius: 8px;">
-  </div>
-
-</div>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
